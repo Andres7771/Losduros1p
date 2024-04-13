@@ -262,5 +262,5 @@ Además de usar Python para ejecutar un servidor web local, también puedes util
  
 Con borrar borramos una tarea, y completadas son para las tareas que ya hayamos hecho.
 Link de la página para probar funcionamiento.
-Andres7771.github.io
+https://andres7771.github.io/Losduros1p/)
 
