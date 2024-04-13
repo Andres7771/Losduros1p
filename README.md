@@ -1,3 +1,22 @@
+Introducción
+En el mundo acelerado de hoy, donde las agendas están llenas de tareas y compromisos, la gestión eficaz del tiempo se ha vuelto más importante que nunca. En este contexto, las aplicaciones de listas de tareas juegan un papel fundamental al ayudar a las personas a organizar y priorizar sus actividades diarias.
+La presente aplicación web, desarrollada para la gestión de listas de tareas, surge como una solución práctica y accesible para aquellos que buscan optimizar su productividad y mantenerse al tanto de sus responsabilidades. Al proporcionar una interfaz intuitiva y funcionalidades clave, esta aplicación busca simplificar el proceso de manejo de tareas, permitiendo a los usuarios concentrarse en lo que realmente importa.
+A lo largo de esta experiencia de desarrollo, se explorarán y aplicarán diversas tecnologías web, desde la estructura básica de HTML hasta la interactividad dinámica de JavaScript, pasando por la estilización elegante de CSS. Mediante la combinación de estas tecnologías, se construirá una aplicación robusta y fácil de usar que pueda adaptarse a las necesidades y preferencias de una amplia gama de usuarios.
+En esta introducción, se establecerán los fundamentos del proyecto y se delineará su alcance y objetivo principal. A través del análisis detallado de las tecnologías utilizadas y las funcionalidades implementadas, se brindará una visión general completa de la aplicación de lista de tareas y se sentarán las bases para el desarrollo posterior del proyecto.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Descripción del Proyecto:
 
 1. Interfaz de Usuario:
@@ -188,25 +207,34 @@ Estos estilos CSS trabajan juntos para crear una interfaz limpia y atractiva par
 
 
 ¿Cómo utilizar la aplicación?
+Primero debemos de entrar al link que esta en el post de github  
+Que es el que nos aparecerá a continuación. https://andres7771.github.io/Losduros1p/ 
+
+
+
+
+
 
  
-Entramos al link que es el que nos aparecerá a continuación. https://andres7771.github.io/Losduros1p/ 
- 
-Llenamos datos y agregamos proyectos.
- 
-Agregamos una nueva tarea y nos aparece el inicio y la entrea con el botón de agregar que es el siguiente
- 
- 
-Este botón es para consultar las listas completadas
- 
-Activas es para ver las tareas activas
-  
-Que en nuestro caso son las siguientes.
+Llenamos datos y agregamos proyectos, tenemos que agregar la asignación o tarea, fecha de inicio. Hora de inicio, fecha de entrega y hora de entrega.
 
  
-Al presionar editar podemos editar parámetros de lo que requiere el trabajo.
+Asignamos nombre a la tarea y una fecha de inicio
  
-Con borrar borramos una tarea, y completadas son para las tareas que ya hayamos hecho.
+Asignamos hora de inicio con el panel.
+ 
+Así como fecha y hora de entrega
+
+Ya agregado nos aparece esto  
+
+ 
+Podemos editar la asignación.
+ 
+Así como completarlas
+ 
+Con el siguiente menú
+Donde tenemos las opciones de ver todas las actividades, listas activas, completadas y borrar las actividades.
+
 Link de la página para probar funcionamiento.
 https://andres7771.github.io/Losduros1p/ 
 
@@ -225,7 +253,6 @@ El proyecto de aplicación web para gestionar una lista de tareas ha sido una ex
 5. Aprendizaje Continuo: El desarrollo de este proyecto ha servido como una oportunidad para aprender y mejorar las habilidades en el desarrollo web. Desde la comprensión más profunda de HTML, CSS y JavaScript hasta el descubrimiento de técnicas avanzadas y prácticas recomendadas, cada paso del proyecto ha sido una oportunidad para crecer y desarrollarse como desarrollador web.
 
 En resumen, el proyecto de aplicación web para gestionar una lista de tareas ha sido un ejercicio valioso que ha permitido aplicar y consolidar conocimientos en tecnologías web fundamentales. A través de la planificación, implementación y refinamiento de la aplicación, se han obtenido lecciones importantes que servirán como base para proyectos futuros y un mayor desarrollo profesional en el campo del desarrollo web.
-
 
 
 
