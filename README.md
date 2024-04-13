@@ -18,7 +18,6 @@ Descripción del Proyecto:
 3. Estilos:
 •	El proyecto utiliza estilos CSS para dar formato y estilo a los diferentes elementos de la interfaz de usuario.
 •	Se aplican efectos de animación para mejorar la experiencia del usuario, como la transición suave de las tareas al agregarlas o eliminarlas.
-
 Tecnologías Utilizadas.
 Las tecnologías utilizadas en el proyecto son fundamentales para la creación de una aplicación web efectiva y funcional para gestionar una lista de tareas. A continuación, se proporciona una descripción más detallada de cada una de estas tecnologías y cómo se relacionan con el proyecto:
 
@@ -45,151 +44,145 @@ Desarrollo Código:
 Este código HTML establece una interfaz básica para gestionar tareas en una página web. A continuación se detalla cada parte del código:
 
 Estructura del Documento HTML:
-Declaración del Tipo de Documento (<!DOCTYPE html>):
 
-Indica que el documento sigue la especificación de HTML5.
-Elemento <html>:
+Estructura Básica:
+Se define el tipo de documento y el idioma (en para inglés).
+Se incluyen metaetiquetas para el juego de caracteres (UTF-8) y la configuración de la vista.
+Se establece el título de la página como "Los Duros".
+Se vincula un archivo CSS externo (disenio.css) para los estilos de la página.
+ 
+Se incorpora un archivo JavaScript externo (funcion.js) para la lógica de la aplicación.
+Contenido Principal:
+Se utiliza un contenedor principal (div con clase container) para estructurar el contenido.
+Se agrega un encabezado principal (<h1>) con el texto "TAREAS".
+Dentro del contenedor principal, se encuentra un formulario (div con clase todo-form) para agregar nuevas tareas.
+Formulario de Tareas:
+El formulario contiene etiquetas (<label>) y campos de entrada (<input>) para:
+Nombre de la tarea (taskInput).
+Fecha de inicio (startDateInput) usando un campo de tipo date.
+Hora de inicio (startTimeInput) usando un campo de tipo time.
+Fecha de entrega (dueDateInput) usando un campo de tipo date.
+Hora de entrega (dueTimeInput) usando un campo de tipo time.
+Lista de Tareas:
+ 
 
-Atributo lang="en": Define el idioma de la página como inglés.
-Elemento <head>:
-
-Metaetiquetas:
-<meta charset="UTF-8">: Especifica la codificación de caracteres como UTF-8.
-<meta name="viewport" content="width=device-width, initial-scale=1.0">: Configura la escala inicial y el ancho de la ventana para dispositivos móviles.
-Título de la Página (<title>): Establece el título de la página como "Los Duros".
-Enlace a Archivo CSS (<link rel="stylesheet" href="./Proyecto.css">): Vincula el archivo CSS externo Proyecto.css para estilos adicionales.
-Elemento <body>:
-
-Contenido Visual:
-<div class="background"></div>: Un contenedor vacío que podría usarse para el fondo de la página.
-<div class="container">: Contenedor principal de contenido.
-<h1>TAREAS</h1>: Encabezado principal que indica el propósito de la página.
-Formulario de Agregar Tareas (<div class="todo-form">):
-<input type="text" id="taskInput" placeholder="Agregar nueva tarea">: Campo de entrada de texto para agregar nuevas tareas.
-<input type="date" id="startDateInput">: Campo de entrada para la fecha de inicio de la tarea.
-<input type="date" id="dueDateInput">: Campo de entrada para la fecha límite de la tarea.
-<button id="addTask">Agregar</button>: Botón para agregar una nueva tarea.
-Lista de Tareas (<ul id="taskList"></ul>): Lista ordenada donde se mostrarán las tareas.
-Opciones de Filtrado (<div id="filterOptions">):
-Botones para filtrar las tareas:
-<button id="allTasks">Todas</button>: Mostrar todas las tareas.
-<button id="activeTasks">Activas</button>: Mostrar solo las tareas activas.
-<button id="completedTasks">Completadas</button>: Mostrar solo las tareas completadas.
-<button id="clearCompleted">Limpiar Completadas</button>: Limpiar las tareas completadas de la lista.
-Script JavaScript (<script src="./Proyecto.js"></script>):
-
-Vincula el archivo JavaScript externo Proyecto.js, que probablemente contenga la lógica para agregar, filtrar y administrar las tareas en la página.
-
+Se utiliza una lista no ordenada (<ul>) con el id taskList para mostrar las tareas agregadas.
+Opciones de Filtro:
+Se proporcionan botones dentro del div con id filterOptions para filtrar las tareas:
+Todas (allTasks): Muestra todas las tareas.
+Activas (activeTasks): Muestra las tareas activas.
+Completadas (completedTasks): Muestra las tareas completadas.
+Limpiar Completadas (clearCompleted): Permite limpiar las tareas completadas de la lista.
+Recursos Externos:
+Se enlazan archivos externos:
+disenio.css para estilos.
+funcion.js para la lógica de la aplicación.
 Este código JavaScript agrega funcionalidad interactiva a una página web diseñada para la gestión de tareas. A continuación, se proporciona una documentación breve de cada parte del código:
-
 Descripción del Código JavaScript:
+El código JavaScript proporcionado se encarga de agregar funcionalidad a la página HTML mediante eventos y lógica para administrar una lista de tareas, incluyendo la capacidad de agregar, editar, eliminar, filtrar y marcar tareas como completadas.
 
-1. **Evento `DOMContentLoaded`**:
-   - Este evento se dispara cuando el HTML ha sido completamente cargado y analizado, sin esperar a que se carguen las imágenes y otros recursos.
-   - La función dentro de este evento se ejecuta una vez que la estructura DOM está lista para ser manipulada.
 
-2. **Selección de Elementos del DOM**:
-   - Se seleccionan varios elementos del documento HTML utilizando `document.getElementById()` para acceder a los elementos por su ID.
-     - `taskInput`, `startDateInput`, `dueDateInput`: Campos de entrada de texto y fechas para ingresar nuevas tareas.
-     - `taskList`: Elemento `<ul>` donde se mostrarán las tareas.
+1. Evento `DOMContentLoaded`:
+   - Se utiliza `document.addEventListener('DOMContentLoaded', function() { ... })` para ejecutar el código una vez que el DOM está completamente cargado.
+
+2. Obtención de Referencias a Elementos del DOM:
+   - Se obtienen referencias a varios elementos del DOM utilizando `document.getElementById` para:
+     - `taskInput`, `startDateInput`, `startTimeInput`, `dueDateInput`, `dueTimeInput`: Campos de entrada para datos de la tarea.
+     - `taskList`: Lista `<ul>` donde se mostrarán las tareas.
      - `allTasksBtn`, `activeTasksBtn`, `completedTasksBtn`, `clearCompletedBtn`: Botones para filtrar y limpiar tareas.
 
-3. **Inicialización de la Lista de Tareas**:
-   - Se carga la lista de tareas desde el almacenamiento local (localStorage). Si no hay datos almacenados, se inicializa como un array vacío (`[]`).
+3. Inicialización de la Lista de Tareas:
+   - Se intenta obtener la lista de tareas del almacenamiento local utilizando `localStorage.getItem`, y si está vacía o no existe, se inicializa una lista vacía.
 
-4. **Función `saveTasks()`**:
-   - Guarda las tareas en el almacenamiento local (localStorage) convirtiéndolas en formato JSON.
+4. Función `saveTasks`:
+   - Esta función guarda la lista de tareas en el almacenamiento local utilizando `localStorage.setItem`.
 
-5. **Función `renderTasks(filter)`**:
-   - Renderiza las tareas en la lista (`taskList`) según el filtro especificado (`'all'`, `'active'`, `'completed'`).
-   - Limpia el contenido existente de la lista (`taskList.innerHTML = ''`) antes de renderizar las tareas.
-   - Crea elementos `<li>` para cada tarea y los agrega a la lista (`taskList`).
-   - Asocia eventos (como editar, borrar y marcar como completado) a cada tarea.
+5. Función `renderTasks`:
+   - Esta función renderiza las tareas en la lista (`taskList`) según un filtro especificado (`all`, `active`, `completed`).
+   - Itera sobre las tareas filtradas y crea elementos HTML dinámicamente para cada tarea.
+   - Asigna eventos a los botones de editar, eliminar y marcar tareas como completadas/incompletas.
 
-6. **Función `filterTasks(filter)`**:
-   - Filtra las tareas según el tipo de filtro especificado (`'active'` para tareas activas, `'completed'` para tareas completadas).
-   - Devuelve un array de tareas filtradas.
+6. Función `filterTasks`:
+   - Esta función filtra las tareas según el estado (`active`, `completed`).
 
-7. **Manejo de Eventos**:
-   - `taskInput.addEventListener('keypress', function(e) { ... })`: Agrega una nueva tarea cuando se presiona la tecla Enter en el campo de texto.
-   - `editButton.addEventListener('click', function() { ... })`: Permite editar una tarea existente.
-   - `deleteButton.addEventListener('click', function() { ... })`: Permite eliminar una tarea existente.
-   - `li.addEventListener('click', function() { ... })`: Permite marcar una tarea como completada o activa.
+7. Función `clearCompletedTasks`:
+   - Esta función elimina las tareas completadas de la lista.
 
-8. **Funciones de Filtrado y Limpieza**:
-   - `clearCompletedTasks()`: Elimina las tareas completadas de la lista.
-   - `allTasksBtn.addEventListener('click', function() { ... })`: Renderiza todas las tareas.
-   - `activeTasksBtn.addEventListener('click', function() { ... })`: Renderiza solo las tareas activas.
-   - `completedTasksBtn.addEventListener('click', function() { ... })`: Renderiza solo las tareas completadas.
-   - `clearCompletedBtn.addEventListener('click', function() { ... })`: Limpia las tareas completadas de la lista.
+8. Eventos:
+   - Se asignan varios eventos a elementos del DOM:
+     - `keypress` en `taskInput` para agregar una tarea cuando se presiona Enter.
+     - `click` en los botones de filtro (`allTasksBtn`, `activeTasksBtn`, `completedTasksBtn`) para mostrar tareas según su estado.
+     - `click` en `clearCompletedBtn` para limpiar las tareas completadas.
 
-9. **Llamada a `renderTasks()`**:
-   - Al final del código, se llama a `renderTasks()` sin un filtro específico para mostrar todas las tareas al cargar la página inicialmente.
+9. Validación y Manipulación de Datos:
+   - Antes de agregar una tarea, se realizan validaciones como verificar que la fecha de inicio no sea posterior a la fecha de entrega.
+   - Se agrega la tarea a la lista, se guarda en el almacenamiento local usando `saveTasks` y se renderizan las tareas nuevamente en la lista.
+   - Se limpian los campos de entrada después de agregar una tarea.
 
-Este código permite agregar, editar, eliminar y filtrar tareas dinámicamente en la página web, utilizando el almacenamiento local para persistir los datos entre sesiones del navegador. La funcionalidad principal está centrada en manipular la lista de tareas de manera interactiva en respuesta a las acciones del usuario.
+10. Renderizado Inicial:
+    - Al cargar la página (`renderTasks();`), se renderizan todas las tareas por defecto.
 
-Este código CSS define estilos para una interfaz de usuario de gestión de tareas dentro de un contenedor en una página web. A continuación, se proporciona una documentación breve de cada parte del código:
-
+En resumen, este código JavaScript implementa la funcionalidad necesaria para manejar una lista de tareas dentro de una página web, permitiendo agregar, editar, eliminar, filtrar y marcar tareas como completadas/incompletas, todo integrado con el almacenamiento local del navegador para persistir los datos entre sesiones.
 Descripción del Código CSS:
 
-1. **Estilos Globales (`body`)**:
-   - `font-family`: Establece la familia de fuentes predeterminada para todo el documento como Arial o una fuente sans-serif.
-   - `margin`, `padding`: Elimina márgenes y rellenos predeterminados del cuerpo (`body`).
-   - `background`: Establece una imagen de fondo (`./Fondo.jpg`) centrada y fija en el cuerpo, con tamaño de fondo que cubre toda el área visible.
+1. Estilos Globales (`body`):
+•	`font-family`: Establece la familia de fuentes predeterminada para todo el documento como Arial o una fuente sans-serif.
+•	`margin`, `padding`: Elimina márgenes y rellenos predeterminados del cuerpo (`body`).
+•	`background`: Establece una imagen de fondo (`./Fondo.jpg`) centrada y fija en el cuerpo, con tamaño de fondo que cubre toda el área visible.
 
-2. **Estilos del Contenedor Principal (`container`)**:
-   - `max-width`: Limita el ancho máximo del contenedor a 800px.
-   - `margin`: Centra el contenedor verticalmente (`50px auto`) y horizontalmente (`auto`).
-   - `padding`: Añade un relleno interno de 30px alrededor del contenido.
-   - `background-color`: Establece un color de fondo semitransparente (blanco con opacidad del 90%).
-   - `border-radius`: Aplica esquinas redondeadas con un radio de 15px.
-   - `box-shadow`: Agrega una sombra suave al contenedor para un efecto de elevación.
+2. Estilos del Contenedor Principal (`container`):
+•	`max-width`: Limita el ancho máximo del contenedor a 800px.
+•	`margin`: Centra el contenedor verticalmente (`50px auto`) y horizontalmente (`auto`).
+•	`padding`: Añade un relleno interno de 30px alrededor del contenido.
+•	`background-color`: Establece un color de fondo semitransparente (blanco con opacidad del 90%).
+•	`border-radius`: Aplica esquinas redondeadas con un radio de 15px.
+•	`box-shadow`: Agrega una sombra suave al contenedor para un efecto de elevación.
 
-3. **Estilos para Títulos (`h1`)**:
-   - `text-align`: Centra el texto del título.
-   - `color`: Establece el color del texto a un tono oscuro (`#333`).
-   - `margin-bottom`: Agrega espacio inferior de 30px al título.
-   - `font-size`: Define el tamaño de fuente del título como 36px.
+3. Estilos para Títulos (`h1`):
+•	`text-align`: Centra el texto del título.
+•	`color`: Establece el color del texto a un tono oscuro (`#333`).
+•	`margin-bottom`: Agrega espacio inferior de 30px al título.
+•	`font-size`: Define el tamaño de fuente del título como 36px.
 
-4. **Estilos del Formulario de Tareas (`todo-form`)**:
-   - `display`: Configura el diseño del formulario como flexbox para alinear elementos vertical y horizontalmente.
-   - `align-items`, `justify-content`: Centra los elementos dentro del formulario.
-   - `margin-bottom`: Añade espacio inferior de 20px al formulario.
+4. Estilos del Formulario de Tareas (`todo-form`):
+•	`display`: Configura el diseño del formulario como flexbox para alinear elementos vertical y horizontalmente.
+•	`align-items`, `justify-content`: Centra los elementos dentro del formulario.
+•	`margin-bottom`: Añade espacio inferior de 20px al formulario.
 
-5. **Estilos para Elementos del Formulario (`todo-form input[type="text"]`, `todo-form input[type="date"]`, `todo-form button`)**:
-   - `padding`, `border`: Establece relleno y bordes alrededor de los elementos de entrada y botones.
-   - `border-radius`: Aplica esquinas redondeadas a los elementos.
-   - `margin-right`: Agrega espacio a la derecha de los elementos.
+5. Estilos para Elementos del Formulario (`todo-form input[type="text"]`, `todo-form input[type="date"]`, `todo-form button`):
+•	`padding`, `border`: Establece relleno y bordes alrededor de los elementos de entrada y botones.
+•	`border-radius`: Aplica esquinas redondeadas a los elementos.
+•	`margin-right`: Agrega espacio a la derecha de los elementos.
 
-6. **Estilos para Botones (`button`)**:
-   - `background-color`, `color`: Define el color de fondo y texto de los botones.
-   - `cursor`: Cambia el cursor a un puntero al pasar sobre los botones.
-   - `transition`: Agrega una transición suave al cambiar el color de fondo al pasar el mouse sobre los botones.
+6. Estilos para Botones (`button`):
+•	`background-color`, `color`: Define el color de fondo y texto de los botones.
+•	`cursor`: Cambia el cursor a un puntero al pasar sobre los botones.
+•	`transition`: Agrega una transición suave al cambiar el color de fondo al pasar el mouse sobre los botones.
 
-7. **Estilos para Elementos de Lista (`ul`, `li`)**:
-   - `list-style-type`: Elimina los estilos de viñetas de las listas.
-   - `padding`: Elimina el relleno predeterminado de las listas.
-   - `position`: Define la posición relativa de los elementos de lista.
-   - `border-bottom`: Agrega una línea divisoria inferior a los elementos de lista.
-   - `font-size`: Define el tamaño de fuente de los elementos de lista como 20px.
-   - `background-color`, `border-radius`: Establece un fondo y esquinas redondeadas para los elementos de lista.
-   - `margin-bottom`: Agrega espacio inferior entre elementos de lista.
+7. Estilos para Elementos de Lista (`ul`, `li`):
+•	`list-style-type`: Elimina los estilos de viñetas de las listas.
+•	`padding`: Elimina el relleno predeterminado de las listas.
+•	`position`: Define la posición relativa de los elementos de lista.
+•	`border-bottom`: Agrega una línea divisoria inferior a los elementos de lista.
+•	`font-size`: Define el tamaño de fuente de los elementos de lista como 20px.
+•	`background-color`, `border-radius`: Establece un fondo y esquinas redondeadas para los elementos de lista.
+•	`margin-bottom`: Agrega espacio inferior entre elementos de lista.
 
-8. **Estilos para Tareas Completadas (`completed`)**:
-   - `text-decoration`: Aplica una línea tachada al texto de las tareas completadas.
-   - `color`: Cambia el color del texto de tareas completadas a un tono más suave (`#999`).
+8. Estilos para Tareas Completadas (`completed`):
+•	`text-decoration`: Aplica una línea tachada al texto de las tareas completadas.
+•	`color`: Cambia el color del texto de tareas completadas a un tono más suave (`#999`).
 
-9. **Estilos para Botones de Edición y Eliminación (`edit-btn`, `delete-btn`)**:
-   - `background`, `color`: Define el color de fondo y texto de los botones de edición y eliminación.
-   - `cursor`: Cambia el cursor a un puntero al pasar sobre los botones.
-   - `margin-left`: Agrega espacio a la izquierda de los botones.
+9. Estilos para Botones de Edición y Eliminación (`edit-btn`, `delete-btn`):
+•	`background`, `color`: Define el color de fondo y texto de los botones de edición y eliminación.
+•	`cursor`: Cambia el cursor a un puntero al pasar sobre los botones.
+•	`margin-left`: Agrega espacio a la izquierda de los botones.
 
-10. **Estilos para Fechas (`dates`)**:
-    - `font-weight`: Define el grosor de la fuente para las fechas como negrita.
+10. Estilos para Fechas (`dates`):
+•	`font-weight`: Define el grosor de la fuente para las fechas como negrita.
 
-11. **Estilos para Opciones de Filtrado (`#filterOptions`)**:
-    - `margin-top`: Agrega espacio en la parte superior de las opciones de filtro.
-    - `text-align`: Centra el contenido de las opciones de filtro.
+11. Estilos para Opciones de Filtrado (`#filterOptions`):
+•	`margin-top`: Agrega espacio en la parte superior de las opciones de filtro.
+•	`text-align`: Centra el contenido de las opciones de filtro.
 
 Estos estilos CSS trabajan juntos para crear una interfaz limpia y atractiva para la aplicación de gestión de tareas, con un diseño responsivo y elementos interactivos que mejoran la experiencia del usuario. Los selectores y propiedades CSS se utilizan de manera efectiva para aplicar estilos coherentes y funcionales a los diferentes componentes de la página.
 
@@ -197,7 +190,7 @@ Estos estilos CSS trabajan juntos para crear una interfaz limpia y atractiva par
 ¿Cómo utilizar la aplicación?
 
  
-Entramos al link que es el que nos aparecerá a continuación.
+Entramos al link que es el que nos aparecerá a continuación. https://andres7771.github.io/Losduros1p/ 
  
 Llenamos datos y agregamos proyectos.
  
@@ -212,55 +205,27 @@ Que en nuestro caso son las siguientes.
 
  
 Al presionar editar podemos editar parámetros de lo que requiere el trabajo.
-
-Clonar un Repositorio desde GitHub
-Paso 1: Obtener la URL del Repositorio
-Primero, necesitas la URL del repositorio que deseas clonar desde GitHub. Puedes encontrar la URL en la página del repositorio en GitHub, en el botón verde "Code".
-
-Paso 2: Abrir la Terminal (en Windows, usa Git Bash)
-En Windows: Abre Git Bash. Puedes hacer clic derecho en una carpeta y seleccionar "Git Bash Here", o abrir Git Bash desde el menú de inicio.
-En macOS o Linux: Abre la Terminal desde la carpeta donde deseas clonar el repositorio.
-Paso 3: Clonar el Repositorio
-Ejecuta el siguiente comando en la Terminal (sustituye <URL_del_repositorio> con la URL que copiaste en el Paso 1):
-
-bash
-Copy code
-git clone <URL_del_repositorio>
-Esto descargará todos los archivos del repositorio y creará una carpeta local con el nombre del repositorio en el directorio actual.
-
-Ejecutar un Proyecto HTML Localmente
-Paso 1: Abrir la Carpeta del Proyecto
-Navega a la carpeta del proyecto clonado usando la Terminal. Por ejemplo, si el repositorio se llama nombre-del-repositorio, usa el comando:
-
-bash
-Copy code
-cd nombre-del-repositorio
-Paso 2: Ejecutar un Servidor Web Local
-Para ejecutar un proyecto HTML localmente, puedes usar un servidor web simple. Por ejemplo, si tienes Python instalado, puedes usar el módulo http.server para iniciar un servidor web local.
-
-Ejecuta el siguiente comando en la Terminal para iniciar un servidor web en el puerto 8000 (o cualquier otro puerto que desees):
-
-bash
-Copy code
-python -m http.server
-Si estás utilizando Python 3, usa este comando:
-
-bash
-Copy code
-python3 -m http.server
-Paso 3: Abrir el Proyecto en el Navegador
-Una vez que el servidor web esté en funcionamiento, abre tu navegador web y visita la siguiente URL:
-
-arduino
-Copy code
-http://localhost:8000
-Esto cargará tu proyecto HTML localmente desde el servidor web en tu navegador. Ahora puedes interactuar con tu proyecto y ver cómo se ve y se comporta en un entorno local.
-
-Nota sobre Otros Servidores Web Locales
-Además de usar Python para ejecutar un servidor web local, también puedes utilizar otras herramientas como live-server (para Node.js), XAMPP, WAMP, MAMP, entre otros, para ejecutar proyectos HTML localmente. Cada herramienta tiene su propio método de instalación y uso, así que elige el que mejor se adapte a tus necesidades y conocimientos.
-
  
 Con borrar borramos una tarea, y completadas son para las tareas que ya hayamos hecho.
 Link de la página para probar funcionamiento.
-https://andres7771.github.io/Losduros1p/)
+https://andres7771.github.io/Losduros1p/ 
+
+Conclusiones:
+
+El proyecto de aplicación web para gestionar una lista de tareas ha sido una experiencia favorable, ya  que ha permitido explorar y aplicar diversas tecnologías web. A lo largo del desarrollo de este proyecto, se han alcanzado varias conclusiones significativas:
+
+1. Importancia de la Interactividad: La incorporación de JavaScript para agregar interactividad a la aplicación ha demostrado ser fundamental. Gracias a JavaScript, los usuarios pueden realizar acciones como agregar, editar, eliminar y filtrar tareas de manera intuitiva, lo que mejora significativamente la experiencia del usuario.
+
+2. Separación de Responsabilidades: La separación clara entre la estructura (HTML), el estilo (CSS) y la funcionalidad (JavaScript) ha facilitado el desarrollo y mantenimiento del proyecto. Esta práctica de desarrollo ayuda a organizar el código de manera más ordenada y modular, lo que hace que sea más fácil de entender y mantener a medida que el proyecto crece.
+
+3. Persistencia de Datos: La utilización del almacenamiento local del navegador para guardar las tareas ha resultado ser una solución eficaz para mantener la integridad de los datos entre sesiones. Esto permite a los usuarios retomar su lista de tareas exactamente donde la dejaron, incluso después de cerrar el navegador.
+
+4. Diseño Responsivo: Aunque no se ha mencionado explícitamente en el proyecto, es importante tener en cuenta la importancia del diseño responsivo en aplicaciones web. Garantizar que la aplicación se vea y funcione correctamente en una variedad de dispositivos y tamaños de pantalla es crucial para brindar una experiencia de usuario consistente y accesible.
+
+5. Aprendizaje Continuo: El desarrollo de este proyecto ha servido como una oportunidad para aprender y mejorar las habilidades en el desarrollo web. Desde la comprensión más profunda de HTML, CSS y JavaScript hasta el descubrimiento de técnicas avanzadas y prácticas recomendadas, cada paso del proyecto ha sido una oportunidad para crecer y desarrollarse como desarrollador web.
+
+En resumen, el proyecto de aplicación web para gestionar una lista de tareas ha sido un ejercicio valioso que ha permitido aplicar y consolidar conocimientos en tecnologías web fundamentales. A través de la planificación, implementación y refinamiento de la aplicación, se han obtenido lecciones importantes que servirán como base para proyectos futuros y un mayor desarrollo profesional en el campo del desarrollo web.
+
+
+
 
